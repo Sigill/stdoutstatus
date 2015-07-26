@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+$|=1;
+
+my $len = @ARGV ? length($ARGV[0]) : 0;
+my $m = $ARGV[0] . "\r";
+
+if ( !$ARGV[0] ) {
+	print "Usage:  some_command_that_writes_to_stdout \| stout <message>\n";
+	exit(1);
+}
+
+print $m;
+
+while (<STDIN>) {
+	print;
+	print $m;
+}
+
+print "\n"
